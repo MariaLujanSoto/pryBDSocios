@@ -23,8 +23,18 @@ namespace pryBDSocios
             objBaseDatos = new clsAccesoDatos();
             objBaseDatos.ConectarBD();
             lblEstadoConexion.Text = objBaseDatos.estadoConexion;
-            objBaseDatos.TraerDatos();
             lblDatos.Text = objBaseDatos.datosTabla;
+            objBaseDatos.TraerDatos(dgvGrilla);
+        }
+
+        private void dtvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            objBaseDatos.BuscarPorID(int.Parse(txtBuscar.Text));
         }
     }
 }

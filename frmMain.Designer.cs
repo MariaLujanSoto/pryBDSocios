@@ -30,6 +30,10 @@
         {
             this.lblEstadoConexion = new System.Windows.Forms.Label();
             this.lblDatos = new System.Windows.Forms.Label();
+            this.dgvGrilla = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEstadoConexion
@@ -37,29 +41,57 @@
             this.lblEstadoConexion.AutoSize = true;
             this.lblEstadoConexion.Location = new System.Drawing.Point(26, 21);
             this.lblEstadoConexion.Name = "lblEstadoConexion";
-            this.lblEstadoConexion.Size = new System.Drawing.Size(35, 13);
+            this.lblEstadoConexion.Size = new System.Drawing.Size(43, 13);
             this.lblEstadoConexion.TabIndex = 0;
-            this.lblEstadoConexion.Text = "label1";
+            this.lblEstadoConexion.Text = "Estado.";
             // 
             // lblDatos
             // 
-            this.lblDatos.AutoSize = true;
-            this.lblDatos.Location = new System.Drawing.Point(382, 142);
+            this.lblDatos.Location = new System.Drawing.Point(26, 58);
             this.lblDatos.Name = "lblDatos";
-            this.lblDatos.Size = new System.Drawing.Size(35, 13);
+            this.lblDatos.Size = new System.Drawing.Size(115, 52);
             this.lblDatos.TabIndex = 1;
-            this.lblDatos.Text = "label1";
+            // 
+            // dgvGrilla
+            // 
+            this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrilla.Location = new System.Drawing.Point(134, 164);
+            this.dgvGrilla.Name = "dgvGrilla";
+            this.dgvGrilla.Size = new System.Drawing.Size(480, 188);
+            this.dgvGrilla.TabIndex = 2;
+            this.dgvGrilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvGrilla_CellContentClick);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(330, 386);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(116, 20);
+            this.txtBuscar.TabIndex = 3;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(468, 382);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 27);
+            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.dgvGrilla);
             this.Controls.Add(this.lblDatos);
             this.Controls.Add(this.lblEstadoConexion);
             this.Name = "frmMain";
             this.Text = "EL CLUB";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,6 +101,9 @@
 
         private System.Windows.Forms.Label lblEstadoConexion;
         private System.Windows.Forms.Label lblDatos;
+        private System.Windows.Forms.DataGridView dgvGrilla;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 
