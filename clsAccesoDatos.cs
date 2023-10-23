@@ -77,17 +77,18 @@ namespace pryBDSocios
                 {
                     if (int.Parse(lectorBD[0].ToString()) == codigo){
                         
-                        //datosTabla += "-" + lectorBD[0]; //dato d la comlumna 0
-                        MessageBox.Show("Cliente Existente"+ lectorBD[0],"Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cliente Existente: \n" + lectorBD[1].ToString() +" "+ lectorBD[2].ToString() , 
+                            "lll", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         Find = true;
                         break;
                     }
                    
                 }
-                if(Find = false){
+                if(Find == false){
 
-                    MessageBox.Show("NO Existente" + lectorBD[0], "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                    MessageBox.Show("NO Existente" , "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    
                 }
             }
         }

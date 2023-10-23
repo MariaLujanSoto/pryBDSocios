@@ -39,7 +39,7 @@
             // lblEstadoConexion
             // 
             this.lblEstadoConexion.AutoSize = true;
-            this.lblEstadoConexion.Location = new System.Drawing.Point(26, 21);
+            this.lblEstadoConexion.Location = new System.Drawing.Point(26, 45);
             this.lblEstadoConexion.Name = "lblEstadoConexion";
             this.lblEstadoConexion.Size = new System.Drawing.Size(43, 13);
             this.lblEstadoConexion.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // lblDatos
             // 
-            this.lblDatos.Location = new System.Drawing.Point(26, 58);
+            this.lblDatos.Location = new System.Drawing.Point(26, 72);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(115, 52);
             this.lblDatos.TabIndex = 1;
@@ -55,7 +55,7 @@
             // dgvGrilla
             // 
             this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrilla.Location = new System.Drawing.Point(134, 164);
+            this.dgvGrilla.Location = new System.Drawing.Point(96, 144);
             this.dgvGrilla.Name = "dgvGrilla";
             this.dgvGrilla.Size = new System.Drawing.Size(480, 188);
             this.dgvGrilla.TabIndex = 2;
@@ -63,14 +63,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(330, 386);
+            this.txtBuscar.Location = new System.Drawing.Point(292, 366);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(116, 20);
             this.txtBuscar.TabIndex = 3;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(468, 382);
+            this.btnBuscar.Location = new System.Drawing.Point(430, 362);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 4;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(707, 450);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvGrilla);
