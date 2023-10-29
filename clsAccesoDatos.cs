@@ -78,7 +78,7 @@ namespace pryBDSocios
                     if (int.Parse(lectorBD[0].ToString()) == codigo){
                         
                         MessageBox.Show("Cliente Existente: \n" + lectorBD[1].ToString() +" "+ lectorBD[2].ToString() , 
-                            "lll", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            "Cliente Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Find = true;
                         break;
@@ -87,7 +87,7 @@ namespace pryBDSocios
                 }
                 if(Find == false){
 
-                    MessageBox.Show("NO Existente" , "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("NO Existente" , "Cliente No Registrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     
                 }
             }

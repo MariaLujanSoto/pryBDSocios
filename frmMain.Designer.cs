@@ -33,17 +33,20 @@
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblEstado1 = new System.Windows.Forms.Label();
+            this.lblBusqueda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEstadoConexion
             // 
             this.lblEstadoConexion.AutoSize = true;
-            this.lblEstadoConexion.Location = new System.Drawing.Point(26, 45);
+            this.lblEstadoConexion.Location = new System.Drawing.Point(188, 59);
             this.lblEstadoConexion.Name = "lblEstadoConexion";
             this.lblEstadoConexion.Size = new System.Drawing.Size(43, 13);
             this.lblEstadoConexion.TabIndex = 0;
             this.lblEstadoConexion.Text = "Estado.";
+            this.lblEstadoConexion.Click += new System.EventHandler(this.lblEstadoConexion_Click);
             // 
             // lblDatos
             // 
@@ -54,6 +57,9 @@
             // 
             // dgvGrilla
             // 
+            this.dgvGrilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrilla.Location = new System.Drawing.Point(96, 144);
             this.dgvGrilla.Name = "dgvGrilla";
@@ -78,11 +84,32 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // lblEstado1
+            // 
+            this.lblEstado1.AutoSize = true;
+            this.lblEstado1.Location = new System.Drawing.Point(40, 59);
+            this.lblEstado1.Name = "lblEstado1";
+            this.lblEstado1.Size = new System.Drawing.Size(142, 13);
+            this.lblEstado1.TabIndex = 5;
+            this.lblEstado1.Text = "Estado de la Base de Datos:";
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Location = new System.Drawing.Point(158, 369);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(116, 13);
+            this.lblBusqueda.TabIndex = 6;
+            this.lblBusqueda.Text = "Ingrese un ID a Buscar";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(707, 450);
+            this.Controls.Add(this.lblBusqueda);
+            this.Controls.Add(this.lblEstado1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvGrilla);
@@ -104,6 +131,8 @@
         private System.Windows.Forms.DataGridView dgvGrilla;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label lblEstado1;
+        private System.Windows.Forms.Label lblBusqueda;
     }
 }
 

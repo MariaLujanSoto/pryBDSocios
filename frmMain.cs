@@ -36,5 +36,10 @@ namespace pryBDSocios
         {
             objBaseDatos.BuscarPorID(int.Parse(txtBuscar.Text));
         }
+
+        private void lblEstadoConexion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
