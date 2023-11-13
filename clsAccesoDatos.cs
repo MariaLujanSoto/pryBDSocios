@@ -1,7 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.Data;
+using System.Security.Policy;
+
 namespace pryBDSocios
+
 {
     internal class clsAccesoDatos
     {
@@ -34,6 +43,8 @@ namespace pryBDSocios
 
         public void TraerDatos(DataGridView grilla)
         {
+            string estado = "";
+            string sexo = "";
             comandoBD = new OleDbCommand();
 
             comandoBD.Connection = conexionBD;
@@ -41,57 +52,83 @@ namespace pryBDSocios
             comandoBD.CommandText = "SOCIOS"; //Que tabla traigo
 
             lectorBD = comandoBD.ExecuteReader(); //abre la tabla y muestra por renglon
+            grilla.Columns.Add("ID", "ID");
             grilla.Columns.Add("Nombre", "Nombre");
             grilla.Columns.Add("Apellido", "Apellido");
-            grilla.Columns.Add("Pais", "Pais");         
-
+            grilla.Columns.Add("Pais", "Pais");
+            grilla.Columns.Add("Edad", "Edad");
+            grilla.Columns.Add("Sexo", "Sexo");
+            grilla.Columns.Add("Ingreso", "Ingreso");
+            grilla.Columns.Add("Puntaje", "Puntaje");
+            grilla.Columns.Add("Estado", "Estado");
 
             if (lectorBD.HasRows) //SI TIENE FILAS
             {
                 while (lectorBD.Read()) //mientras pueda leer, mostrar (leer)
                 {
-                    datosTabla += "-" + lectorBD[0]; //dato d la comlumna 0
-                    grilla.Rows.Add(lectorBD[1], lectorBD[2], lectorBD[3]);
-                }
-
-            }
-
-        }
-
-        public void BuscarPorID(int codigo){
-
-            comandoBD = new OleDbCommand();
-
-            comandoBD.Connection = conexionBD;
-            comandoBD.CommandType = System.Data.CommandType.TableDirect;  //q tipo de operacion quierp hacer y que me traiga TOD la tabla con el tabledirect
-            comandoBD.CommandText = "SOCIOS"; //Que tabla traigo
-
-            lectorBD = comandoBD.ExecuteReader(); //abre la tabla y muestra por renglon
-            
-
-
-            if (lectorBD.HasRows) //SI TIENE FILAS
-            {
-                bool Find = false;
-                while (lectorBD.Read()) //mientras pueda leer, mostrar (leer)
-                {
-                    if (int.Parse(lectorBD[0].ToString()) == codigo){
-                        
-                        MessageBox.Show("Cliente Existente: \n" + lectorBD[1].ToString() +" "+ lectorBD[2].ToString() , 
-                            "Cliente Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        Find = true;
-                        break;
+                    if (lectorBD.GetBoolean(5) == true)
+                    {
+                        sexo = "Masculino";
                     }
-                   
-                }
-                if(Find == false){
+                    else
+                    {
+                        sexo = "Femenino";
+                    }
+                    if (lectorBD.GetBoolean(8) == true)
+                    {
+                        estado = "Activo";
+                    }
+                    else
+                    {
+                        estado = "Inactivo";
+                    }
+                    grilla.Rows.Add(lectorBD[0], lectorBD[1], lectorBD[2], lectorBD[3], lectorBD[4], sexo, lectorBD[6], lectorBD[7], estado);
 
-                    MessageBox.Show("NO Existente" , "Cliente No Registrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    
                 }
+
             }
+
         }
 
+        public void BuscarPorID(int codigo)
+        {
+            OleDbDataAdapter objAdaptador = new OleDbDataAdapter(); // Agregar esta línea
+            OleDbCommandBuilder commandBuilder = new OleDbCommandBuilder(objAdaptador);
+            DataTable dt = new DataTable();
+
+            objAdaptador.SelectCommand = new OleDbCommand("SELECT * FROM SOCIOS", conexionBD); // Ajustar la consulta según tu estructura
+
+            objAdaptador.Fill(dt);
+
+            bool encontrado = false;
+            foreach (DataRow registro in dt.Rows)
+            {
+                if ((int)registro["CODIGO_SOCIO"] == codigo)
+                {
+                    encontrado = true;
+
+                    DialogResult respuesta = MessageBox.Show($"El Cliente {registro["NOMBRE"]} existe en el sistema. ¿Desea cambiar su estado?", "Consulta", MessageBoxButtons.YesNo);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        registro.BeginEdit();
+                        registro["ESTADO"] = !(bool)registro["ESTADO"];
+                        registro.EndEdit();
+
+                        // Actualizar la base de datos
+                        objAdaptador.Update(dt);
+
+                        MessageBox.Show("Estado cambiado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    break; 
+                }
+            }
+
+            if (!encontrado)
+            {
+                MessageBox.Show("Cliente no encontrado.", "Cliente No Registrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

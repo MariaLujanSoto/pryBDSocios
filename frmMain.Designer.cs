@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblEstadoConexion = new System.Windows.Forms.Label();
-            this.lblDatos = new System.Windows.Forms.Label();
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -47,13 +46,6 @@
             this.lblEstadoConexion.TabIndex = 0;
             this.lblEstadoConexion.Text = "Estado.";
             this.lblEstadoConexion.Click += new System.EventHandler(this.lblEstadoConexion_Click);
-            // 
-            // lblDatos
-            // 
-            this.lblDatos.Location = new System.Drawing.Point(26, 72);
-            this.lblDatos.Name = "lblDatos";
-            this.lblDatos.Size = new System.Drawing.Size(115, 52);
-            this.lblDatos.TabIndex = 1;
             // 
             // dgvGrilla
             // 
@@ -106,16 +98,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(707, 450);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.lblEstado1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvGrilla);
-            this.Controls.Add(this.lblDatos);
             this.Controls.Add(this.lblEstadoConexion);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EL CLUB";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();
@@ -127,7 +119,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblEstadoConexion;
-        private System.Windows.Forms.Label lblDatos;
         private System.Windows.Forms.DataGridView dgvGrilla;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;

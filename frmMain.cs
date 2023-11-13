@@ -16,6 +16,8 @@ namespace pryBDSocios
         public frmMain()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmMain_KeyDown);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -23,7 +25,6 @@ namespace pryBDSocios
             objBaseDatos = new clsAccesoDatos();
             objBaseDatos.ConectarBD();
             lblEstadoConexion.Text = objBaseDatos.estadoConexion;
-            lblDatos.Text = objBaseDatos.datosTabla;
             objBaseDatos.TraerDatos(dgvGrilla);
         }
 
@@ -40,6 +41,15 @@ namespace pryBDSocios
         private void lblEstadoConexion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                // Cerrar el formulario
+                this.Close();
+            }
         }
     }
 }
